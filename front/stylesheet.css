@@ -1,0 +1,141 @@
+/*전체 너비 계산시 패딩,볼더 값 포함하도록 설정,margin 제외 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/*할 일 목록에서 패딩,마진 0으로 초기화*/
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/*할 일 목록*/
+ul li{
+    cursor: pointer;       
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #F5FCFF;
+    font-size: 18px;
+    transition: 0.2s;
+
+    /*선택하지 않은 상태로 초기화*/
+     -webkit-user-select: none;  /*크롬,사파리전용 */
+    -moz-user-select: none; /*파이어폭스전용 */
+    -ms-user-select: none;  /*IE 10+ 전용 */
+    user-select: none;
+}
+
+/*줄무늬로 칠하기 (홀수)*/
+ul li:nth-child(odd) {
+    background: #E6F0F5;
+}
+
+/* 커서가 위에 있을 때 목록 색상 */
+ul li:hover {
+    background: #C7CDE4;
+}
+
+/*할 일 목록을 클릭했을 때 배경과 텍스트 색상을 설정하고 취소선 적용*/
+/*텍스트를 다른 속성으로 부터 독립*/
+ul li.checked {
+    background: #9CBCCB;
+    color: #fff;
+    text-decoration: line-through;  /*취소선*/
+}
+
+/*클릭 했을 때 목록 이름 앞에 체크 모양 도형 만들기*/
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0; /*top 부터 시계방향*/
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg); /*45도 회전*/
+    height: 15px;
+    width: 7px;
+}
+
+/*삭제버튼 스타일*/
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+
+/*삭제 버튼위에 마우스가 위치할때*/
+.close:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+/*헤더*/
+.header {
+    background-color: #A4B6FF;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+}
+
+/*헤더 다음 float 초기화*/
+ .header:after {
+    content: "";
+    display: table;
+    clear: both;
+} 
+
+/*목록 입력 칸 스타일 */
+#myInput {
+    margin:30px;
+    margin-right: 0;
+    border: none;
+    width: 70%;
+    padding: 11.5px;
+    float: left;
+    font-size: 16px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+/*Add 버튼 스타일*/
+.addBtn {
+    margin: 30px;
+    margin-left: 0;
+    padding: 10px;
+    width: 25%;
+    background: #808FC9;
+    color: white;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer; /*링크를 가리키는 마우스 포인터*/
+    transition: 0.3s; /*딜레이*/
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.addBtn:hover {
+    background-color: #2953FF;
+}
+
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: red; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+}
+
+#myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}
